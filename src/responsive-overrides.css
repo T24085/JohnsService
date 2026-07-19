@@ -7,3 +7,15 @@
   object-fit: contain;
   object-position: center;
 }
+
+/* The hero keeps a two-column desktop grid unless it is explicitly collapsed. */
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero-copy,
+  .hero-facts {
+    width: 100%;
+  }
+}
