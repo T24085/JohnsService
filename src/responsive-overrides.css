@@ -1,0 +1,9 @@
+/* Preserve the full station photo at every breakpoint; the source image is intentionally wider than tall. */
+.intro-media img {
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  aspect-ratio: auto;
+  object-fit: contain;
+  object-position: center;
+}

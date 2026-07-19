@@ -1,0 +1,71 @@
+/* Site-wide motion pass: atmosphere, pacing, and section-specific emphasis. */
+body.is-ready .site-header { animation:header-drop .8s cubic-bezier(.2,.72,.2,1) both; }
+body.is-ready .hero-photo img { animation:hero-breathe 24s ease-in-out .2s infinite alternate; }
+.hero .hero-kicker.is-visible { animation:hero-kicker-in .72s cubic-bezier(.2,.72,.2,1) both; }
+.hero .hero-copy.is-visible { animation:hero-copy-in .9s cubic-bezier(.2,.72,.2,1) .08s both; }
+.hero .hero-facts.is-visible { animation:hero-facts-in .8s cubic-bezier(.2,.72,.2,1) .2s both; }
+
+.intro-media.is-visible img { animation:intro-drift 18s ease-in-out .2s infinite alternate; }
+.services::after { animation:service-orbit 34s linear infinite; transform-origin:center; }
+.service-card.is-visible { animation:service-rise .72s cubic-bezier(.2,.72,.2,1) both; }
+.service-card.is-visible:nth-child(2) { animation-delay:.1s; }
+.service-card.is-visible:nth-child(3) { animation-delay:.2s; }
+.service-card.is-visible:nth-child(4) { animation-delay:.3s; }
+
+.gallery-image.is-visible img { animation:gallery-drift 17s ease-in-out .3s infinite alternate; }
+.gallery-tall.is-visible img { animation-delay:.8s; animation-direction:alternate-reverse; }
+.gallery-wide.is-visible img { animation-delay:1.1s; }
+
+.statement-image img { animation:statement-drift 23s ease-in-out infinite alternate; }
+.statement-word { animation:wordmark-float 13s ease-in-out infinite alternate; }
+.testimonial-slide.is-active { animation:testimonial-settle .72s cubic-bezier(.2,.72,.2,1) both; }
+
+.map-frame.is-visible { animation:frame-arrive .9s cubic-bezier(.2,.72,.2,1) both; }
+.map-frame.is-visible .map-badge { animation:badge-rise .8s cubic-bezier(.2,.72,.2,1) .2s both; }
+.contact::before { animation:contact-orbit 30s ease-in-out infinite alternate; }
+.help-form.is-visible { animation:form-arrive .9s cubic-bezier(.2,.72,.2,1) .12s both; }
+body.is-ready .site-footer { animation:footer-rise .9s cubic-bezier(.2,.72,.2,1) both; }
+
+@keyframes header-drop { from { opacity:0; transform:translateY(-12px); } to { opacity:1; transform:none; } }
+@keyframes hero-breathe { from { transform:scale(1.02) translate3d(-.35%,0,0); } to { transform:scale(1.07) translate3d(.45%,-.5%,0); } }
+@keyframes hero-kicker-in { from { opacity:0; letter-spacing:.28em; transform:translateY(10px); } to { opacity:1; letter-spacing:.2em; transform:none; } }
+@keyframes hero-copy-in { from { opacity:0; transform:translate3d(0,20px,0); } to { opacity:1; transform:none; } }
+@keyframes hero-facts-in { from { opacity:0; transform:translate3d(20px,0,0); } to { opacity:1; transform:none; } }
+@keyframes intro-drift { from { transform:scale(1.015) translate3d(-.3%,0,0); } to { transform:scale(1.045) translate3d(.35%,-.25%,0); } }
+@keyframes service-orbit { from { transform:rotate(0deg); } to { transform:rotate(360deg); } }
+@keyframes service-rise { from { opacity:0; transform:translate3d(0,16px,0); } to { opacity:1; transform:none; } }
+@keyframes gallery-drift { from { transform:scale(1.015) translate3d(-.45%,0,0); } to { transform:scale(1.055) translate3d(.45%,-.3%,0); } }
+@keyframes statement-drift { from { transform:scale(1.015) translate3d(-.2%,0,0); } to { transform:scale(1.055) translate3d(.4%,-.3%,0); } }
+@keyframes wordmark-float { from { opacity:.56; transform:translate3d(-4px,3px,0); } to { opacity:.88; transform:translate3d(2px,-2px,0); } }
+@keyframes testimonial-settle { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+@keyframes frame-arrive { from { opacity:.4; transform:translateY(18px); } to { opacity:1; transform:none; } }
+@keyframes badge-rise { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:none; } }
+@keyframes contact-orbit { from { transform:translate3d(-2%,1%,0) scale(.98); } to { transform:translate3d(2%,-1%,0) scale(1.03); } }
+@keyframes form-arrive { from { opacity:0; transform:translate3d(18px,10px,0); } to { opacity:1; transform:none; } }
+@keyframes footer-rise { from { opacity:.65; } to { opacity:1; } }
+
+@media (max-width:620px) {
+  body.is-ready .hero-photo img { animation-duration:30s; }
+  .services::after { animation-duration:46s; }
+  .statement-image img { animation-duration:30s; }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  body.is-ready .site-header,
+  body.is-ready .hero-photo img,
+  .hero .hero-kicker.is-visible,
+  .hero .hero-copy.is-visible,
+  .hero .hero-facts.is-visible,
+  .intro-media.is-visible img,
+  .services::after,
+  .service-card.is-visible,
+  .gallery-image.is-visible img,
+  .statement-image img,
+  .statement-word,
+  .testimonial-slide.is-active,
+  .map-frame.is-visible,
+  .map-frame.is-visible .map-badge,
+  .contact::before,
+  .help-form.is-visible,
+  body.is-ready .site-footer { animation:none!important; }
+}
